@@ -18,7 +18,7 @@ const log = (str) => {
 }
 
 
-class LierGame{
+class LiarGame{
     constructor(cards, people_num=4) {
         this.cards = cards;
         this.category = '';
@@ -73,7 +73,7 @@ class LierGame{
     #shuffle(){
         let keyword = this.keywords[Math.floor(Math.random()*this.keywords.length)]
         let res = new Array(this.peopleNum).fill(keyword);
-        res[Math.floor(Math.random()*this.peopleNum)] = 'U-Lier';
+        res[Math.floor(Math.random()*this.peopleNum)] = 'Liar(라이어)';
         return res;
     }
     start(){
@@ -128,7 +128,7 @@ bot.on('message', msg => {
             return false;
         }
         if(global.game) delete global.game
-        global.game = new LierGame(cards, factor*1);   // cards, num_of_people
+        global.game = new LiarGame(cards, factor*1);   // cards, num_of_people
         global.isGameExist = true;
         msg.reply(`라이어 게임이 개설되었습니다. 현재 인원 ${factor}명`);
         return true;
@@ -204,7 +204,7 @@ bot.on('message', msg => {
 
     if(content === '종료'){
         msg.reply('변동 사항을 저장합니다. 플레이해주셔서 감사합니다.');
-        LierGame.saveChanges();
+        LiarGame.saveChanges();
         global.isGameStarted = false;
     }
 
