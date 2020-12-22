@@ -1,2 +1,2 @@
-# U-Lier
- Are you a Lier?
+# U-Liar
+ Are you a Liar?
