@@ -53,7 +53,7 @@ class LiarGame{
         // }
     }
     insertKeyword(keyword){
-        if(this.keywords.length >= 20 || this.keywords.includes(keyword)) return false;
+        if(this.keywords.length >= 40 || this.keywords.includes(keyword)) return false;
         this.keywords.push(keyword);
         this.cards[this.category].length++;
         // this.keywordsChanged = true;
@@ -170,7 +170,7 @@ bot.on('message', msg => {
         }
         global.game.insertKeyword(factor);
         let str = global.game.keywords.map((v, idx) => ((idx+1) + '. ' + v)).join('\n');
-        msg.reply(`\n${str}\n⚠ 키워드는 중복되지 않고 20개 이하로 입력 가능합니다.`)
+        msg.reply(`\n${str}\n⚠ 키워드는 중복되지 않고 40개 이하로 입력 가능합니다.`)
     }
 
     if(content === '제거'){
